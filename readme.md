@@ -1,4 +1,9 @@
 
+## Authors
+
+- [@anddyagudelo](https://www.github.com/anddyagudelo)
+
+
 ## Run Locally
 
 Clone the project
@@ -14,3 +19,4 @@ Start the server
 ```bash
   python main.py
 ```
+

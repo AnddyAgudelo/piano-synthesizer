@@ -6,12 +6,12 @@ from pyo import Server, Sine, LFO, Adsr, Biquad, Delay, Mixer
 class PianoSynthesizer:
     def __init__(self, root):
         self.root = root
-        self.root.title("Sarah's Piano")
+        self.root.title("Piano Synthesizer")
         self.root.geometry("1200x550")
         self.root.resizable(True, True)
         self.root.configure(bg='#333333')
 
-        self.server = Server().boot() # Iniciamos el servidor de audio
+        self.server = Server().boot()  # Iniciamos el servidor de audio
         self.server.start()
 
         self.notes = {
@@ -19,7 +19,7 @@ class PianoSynthesizer:
             'r': 349.23, '5': 369.99, 't': 392.00, '6': 415.30, 'y': 440.00,
             '7': 466.16, 'u': 493.88, 'i': 523.25, '9': 554.37, 'o': 587.33,
             '0': 622.25, 'p': 659.26
-        } # Definimos las frecuencias de las teclas del piano
+        }  # Definimos las frecuencias de las teclas del piano
 
         self.oscillators = {}
 
@@ -385,10 +385,10 @@ class PianoSynthesizer:
             )
 
             mixer = Mixer(outs=2, chnls=2)
-            mixer.addInput(0, signal) # signal original
-            mixer.addInput(1, echo) # signal echo
-            mixer.setAmp(0,0, 1 - self.synth_params["echo_mix"]) # nivel original
-            mixer.setAmp(1,0, self.synth_params["echo_mix"]) # nivel echo
+            mixer.addInput(0, signal)  # signal original
+            mixer.addInput(1, echo)  # signal echo
+            mixer.setAmp(0, 0, 1 - self.synth_params["echo_mix"])  # nivel original
+            mixer.setAmp(1, 0, self.synth_params["echo_mix"])  # nivel echo
             final_signal = mixer
         else:
             final_signal = signal
